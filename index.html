@@ -449,8 +449,9 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">Air-Seal Baltic & Nordic</div>
-            <div style="font-size:0.95rem;color:#e0e0e0;margin-top:0.2rem;">by Osaühing Baltsec Grupp | <a href="mailto:info@air-seal.eu" style="color:#ffd700;text-decoration:none;">info@air-seal.eu</a></div>
+            <div class="logo" style="display:flex;align-items:center;gap:1rem;">
+                <img src="/airseal/AIR-SEAL-PRODUCTS-LOGO.png" alt="Air-Seal Products Logo" style="height:54px;width:auto;max-width:180px;display:block;" />
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
@@ -475,20 +476,20 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">95%</div>
-                    <div class="stat-label">Puncture Reduction</div>
+                    <div class="stat-number" id="stat1">95%</div>
+                    <div class="stat-label" id="stat1-label">Puncture Reduction</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">20%</div>
-                    <div class="stat-label">Tire Life Extension</div>
+                    <div class="stat-number" id="stat2">20%</div>
+                    <div class="stat-label" id="stat2-label">Tire Life Extension</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">3%</div>
-                    <div class="stat-label">Fuel Economy Increase</div>
+                    <div class="stat-number" id="stat3">3%</div>
+                    <div class="stat-label" id="stat3-label">Fuel Economy Increase</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">20+</div>
-                    <div class="stat-label">Years Proven Performance</div>
+                    <div class="stat-number" id="stat4">20+</div>
+                    <div class="stat-label" id="stat4-label">Years Proven Performance</div>
                 </div>
             </div>
         </div>
@@ -692,9 +693,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Air-Seal Baltic & Nordic. Official distributor of Air-Seal Products for Baltic and Nordic regions.</p>
-            <p>Serving Estonia, Latvia, Lithuania, Finland, Sweden, Norway, Denmark</p>
-            <p style="margin-top:1rem;font-size:0.95rem;">Osaühing Baltsec Grupp | Registry code: 10951788 | VAT: EE100831836</p>
+            <p>Official distributor of Air-Seal Products for Baltic and Nordic regions.</p>
+            <p style="margin-top:1rem;font-size:0.95rem;">Osaühing Baltsec Grupp | info@air-seal.eu | Registry code: 10951788 | VAT: EE100831836 | &copy; <span id="year"></span></p>
         </div>
     </footer>
 
@@ -725,8 +725,12 @@
             }
         });
 
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
         // Language switcher
         const en = {
+            nav: ["Home", "Products", "Industries", "About", "Contact"],
             hero_h1: "Stop Tire Punctures. Forever.",
             hero_p: "Air-Seal is the only tire sealant proven to instantly and permanently seal punctures up to 30mm—even in the harshest conditions. Trusted by defense, mining, and agriculture leaders. Protect your fleet, cut costs, and eliminate downtime today.",
             cta: "Get Your Free Professional Quote",
@@ -739,10 +743,11 @@
             why_title: "Why Air-Seal?",
             contact_title: "Get Your Free Professional Quote",
             contact_h3: "What You Get",
-            contact_form_h3: "Request Your Quote"
+            contact_form_h3: "Request Your Quote",
+            stats: ["Puncture Reduction", "Tire Life Extension", "Fuel Economy Increase", "Years Proven Performance"]
         };
-
         const et = {
+            nav: ["Avaleht", "Tooted", "Valdkonnad", "Meist", "Kontakt"],
             hero_h1: "Lõpeta rehvitorked. Igaveseks.",
             hero_p: "Air-Seal on ainus rehvihermeetik, mis tõestatult sulgeb kuni 30mm torkeavad koheselt ja jäädavalt – isegi kõige karmimates tingimustes. Usaldatud kaitse kaitseväe, kaevanduse ja põllumajanduse liidrite poolt. Kaitse oma autoparki, vähenda kulusid ja väldi seisakuid juba täna.",
             cta: "Küsi professionaalset pakkumist",
@@ -755,14 +760,18 @@
             why_title: "Miks Air-Seal?",
             contact_title: "Küsi professionaalset pakkumist",
             contact_h3: "Mida saad",
-            contact_form_h3: "Küsi pakkumist"
+            contact_form_h3: "Küsi pakkumist",
+            stats: ["Torkekindlus", "Rehvi eluea pikenemine", "Kütusekulu vähenemine", "Aastat tõestatud tulemusi"]
         };
-
         function setLang(lang) {
             const t = lang === 'et' ? et : en;
+            // Navigation
+            document.querySelectorAll('.nav-links li a').forEach((el, i) => { el.innerHTML = t.nav[i]; });
+            // Hero
             document.querySelector('.hero h1').innerHTML = t.hero_h1;
             document.querySelector('.hero p').innerHTML = t.hero_p;
             document.querySelector('.hero .cta-button').innerHTML = t.cta;
+            // Section titles
             document.querySelectorAll('.section-title')[0].innerHTML = t.products_title;
             document.querySelectorAll('.section-title')[1].innerHTML = t.industries_title;
             document.querySelectorAll('.section-title')[2].innerHTML = t.why_title;
@@ -781,6 +790,11 @@
             cards[3].querySelector('h3').innerHTML = t.standard.title;
             cards[3].querySelector('p').innerHTML = t.standard.desc;
             cards[3].querySelector('.repair-size').innerHTML = t.standard.repair;
+            // Stats
+            document.getElementById('stat1-label').innerHTML = t.stats[0];
+            document.getElementById('stat2-label').innerHTML = t.stats[1];
+            document.getElementById('stat3-label').innerHTML = t.stats[2];
+            document.getElementById('stat4-label').innerHTML = t.stats[3];
             // Contact
             document.querySelector('.contact-info h3').innerHTML = t.contact_h3;
             document.querySelector('.contact-form h3').innerHTML = t.contact_form_h3;
