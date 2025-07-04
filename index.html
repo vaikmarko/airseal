@@ -340,10 +340,11 @@
         }
 
         .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
             margin-top: 3rem;
+            align-items: stretch;
         }
 
         .contact-info {
@@ -351,6 +352,8 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            min-width: 300px;
+            flex: 1;
         }
 
         .contact-form {
@@ -358,6 +361,8 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            min-width: 300px;
+            flex: 1;
         }
 
         .contact-highlight {
@@ -366,6 +371,7 @@
             background: #f8f9fa;
             border-radius: 8px;
             border-left: 4px solid #ff6b35;
+            text-align: left;
         }
 
         .contact-highlight h4 {
@@ -419,6 +425,9 @@
             .products-grid, .industries-grid {
                 grid-template-columns: 1fr;
             }
+            .contact-grid {
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 768px) {
@@ -431,7 +440,7 @@
             }
             
             .contact-grid {
-                grid-template-columns: 1fr;
+                flex-direction: column;
             }
             .products-grid, .industries-grid {
                 grid-template-columns: 1fr;
@@ -441,7 +450,7 @@
 </head>
 <body>
     <!-- Language Bar -->
-    <div style="background:#2a5298;color:#fff;padding:0.3rem 0;text-align:right;font-size:1rem;">
+    <div id="lang-bar" style="background:#2a5298;color:#fff;padding:0.3rem 0;text-align:right;font-size:1rem;">
         <span id="lang-en" style="cursor:pointer;font-weight:bold;">EN</span> |
         <span id="lang-et" style="cursor:pointer;">ET</span>
     </div>
@@ -635,18 +644,18 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get Your Free Professional Quote</h2>
-            <div class="contact-grid">
-                <div class="contact-info" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
-                    <h3>What You Get</h3>
-                    <ul style="list-style:disc inside;margin:2rem auto 0 auto;padding:0;max-width:600px;text-align:left;">
-                        <li><b>Seals up to 30mm punctures instantly</b>—no stopping, no downtime.</li>
-                        <li><b>Permanently protects</b> for the life of the tire—one application, no reapplication.</li>
-                        <li>Works in <b>all conditions</b>: on-road, off-road, sub-zero, heavy industry.</li>
-                        <li>Trusted by <b>Estonian Defense Forces</b>, Kuusakoski, and more.</li>
-                        <li><b>20% longer tire life, 95% fewer punctures, 3% fuel savings.</b></li>
-                        <li>Zero separation—no maintenance, no hassle.</li>
-                    </ul>
+            <h2 class="section-title" id="contact-title">Get Your Free Professional Quote</h2>
+            <div class="contact-grid" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: stretch;">
+                <div class="contact-info" style="flex:1; min-width:300px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+                    <h3 id="contact-info-title">What You Get</h3>
+                    <div id="what-you-get-list" style="width:100%;max-width:420px;display:flex;flex-direction:column;gap:1rem;margin:2rem auto 0 auto;">
+                        <div class="contact-highlight"><span id="get1"><b>Seals up to 30mm punctures instantly</b>—no stopping, no downtime.</span></div>
+                        <div class="contact-highlight"><span id="get2"><b>Permanently protects</b> for the life of the tire—one application, no reapplication.</span></div>
+                        <div class="contact-highlight"><span id="get3">Works in <b>all conditions</b>: on-road, off-road, sub-zero, heavy industry.</span></div>
+                        <div class="contact-highlight"><span id="get4">Trusted by <b>Estonian Defense Forces</b>, Kuusakoski, and more.</span></div>
+                        <div class="contact-highlight"><span id="get5"><b>20% longer tire life, 95% fewer punctures, 3% fuel savings.</b></span></div>
+                        <div class="contact-highlight"><span id="get6">Zero separation—no maintenance, no hassle.</span></div>
+                    </div>
                 </div>
                 <div class="contact-form">
                     <h3>Request Your Quote</h3>
@@ -717,88 +726,70 @@
             }
         });
 
-        // Language switcher
-        const en = {
-            nav: ["Home", "Products", "Industries", "About", "Contact"],
-            hero_h1: "Stop Tire Punctures. Forever.",
-            hero_p: "Air-Seal is the only tire sealant proven to instantly and permanently seal punctures up to 30mm—even in the harshest conditions. Trusted by defense, mining, and agriculture leaders. Protect your fleet, cut costs, and eliminate downtime today.",
-            cta: "Get Your Free Professional Quote",
-            products_title: "Professional Tire Sealant Solutions",
-            heavy: {title: "Heavy Duty Sealant", desc: "Perfect for tractors, dumpers, and telehandlers. Provides instant puncture repair and lasts the entire life of the tire. <b>One application protects permanently</b> - no reapplication needed.", repair: "Repairs up to 15mm"},
-            armour: {title: "Armour-Seal Premium", desc: "Maximum protection for heavy earthmoving equipment. Trusted by military forces worldwide. <b>Permanent protection in the harshest conditions</b> - your equipment keeps working.", repair: "Repairs up to 30mm"},
-            hydro: {title: "Hydro-Seal", desc: "Specially formulated for ballast-filled tires. Compatible with anti-freeze and suitable for sub-zero temperatures. <b>Works throughout the tire's lifetime</b> without separation.", repair: "Repairs up to 13mm"},
-            standard: {title: "Air-Seal Standard", desc: "Versatile solution for smaller vehicles and equipment. Suitable for cars, 4x4s, trailers, ATVs, and ride-on mowers. <b>Set it and forget it</b> - permanent protection for diverse applications.", repair: "Repairs up to 15mm"},
-            industries_title: "Industries We Serve",
-            why_title: "Why Air-Seal?",
-            contact_title: "Get Your Free Professional Quote",
-            contact_h3: "What You Get",
-            contact_form_h3: "Request Your Quote",
-            stats: ["Puncture Reduction", "Tire Life Extension", "Fuel Economy Increase", "Years Proven Performance"]
-        };
-        const et = {
-            nav: ["Avaleht", "Tooted", "Valdkonnad", "Meist", "Kontakt"],
-            hero_h1: "Lõpeta rehvitorked. Igaveseks.",
-            hero_p: "Air-Seal on ainus rehvihermeetik, mis tõestatult sulgeb kuni 30mm torkeavad koheselt ja jäädavalt – isegi kõige karmimates tingimustes. Usaldatud kaitse kaitseväe, kaevanduse ja põllumajanduse liidrite poolt. Kaitse oma autoparki, vähenda kulusid ja väldi seisakuid juba täna.",
-            cta: "Küsi professionaalset pakkumist",
-            products_title: "Professionaalsed rehvihermeetikud",
-            heavy: {title: "Tööstuslik hermeetik", desc: "Ideaalne traktoritele, kalluritele ja teleskooplaaduritele. Parandab torkeavad koheselt ja kestab kogu rehvi eluea. <b>Üks paigaldus kaitseb jäädavalt</b> – korduvkasutust pole vaja.", repair: "Parandab kuni 15mm"},
-            armour: {title: "Armour-Seal Premium", desc: "Maksimaalne kaitse rasketehnikale. Usaldatud sõjaväe poolt. <b>Püsiv kaitse ka kõige raskemates tingimustes</b> – teie tehnika töötab edasi.", repair: "Parandab kuni 30mm"},
-            hydro: {title: "Hydro-Seal", desc: "Spetsiaalselt ballastiga täidetud rehvidele. Sobib antifriisiga ja miinuskraadidesse. <b>Toimib kogu rehvi eluea</b> vältel ilma eraldumiseta.", repair: "Parandab kuni 13mm"},
-            standard: {title: "Air-Seal Standard", desc: "Mitmekülgne lahendus väiksematele sõidukitele ja seadmetele. Sobib autodele, 4x4-dele, haagistele, ATV-dele ja muruniidukitele. <b>Pane paika ja unusta</b> – püsiv kaitse erinevates rakendustes.", repair: "Parandab kuni 15mm"},
-            industries_title: "Teenindatavad valdkonnad",
-            why_title: "Miks Air-Seal?",
-            contact_title: "Küsi professionaalset pakkumist",
-            contact_h3: "Mida saad",
-            contact_form_h3: "Küsi pakkumist",
-            stats: ["Torkekindlus", "Rehvi eluea pikenemine", "Kütusekulu vähenemine", "Aastat tõestatud tulemusi"]
+        // Language translations
+        const translations = {
+            en: {
+                lang: 'EN',
+                langAlt: 'ET',
+                nav: ["Home", "Products", "Industries", "About", "Contact"],
+                contactTitle: "Get Your Free Professional Quote",
+                contactInfoTitle: "What You Get",
+                get: [
+                    "<b>Seals up to 30mm punctures instantly</b>—no stopping, no downtime.",
+                    "<b>Permanently protects</b> for the life of the tire—one application, no reapplication.",
+                    "Works in <b>all conditions</b>: on-road, off-road, sub-zero, heavy industry.",
+                    "Trusted by <b>Estonian Defense Forces</b>, Kuusakoski, and more.",
+                    "<b>20% longer tire life, 95% fewer punctures, 3% fuel savings.</b>",
+                    "Zero separation—no maintenance, no hassle."
+                ],
+                formTitle: "Request Your Quote",
+                formLabels: ["Company Name", "Contact Person", "Email", "Phone", "Fleet Size & Vehicle Types", "Additional Information"],
+                formPlaceholders: ["", "", "", "", "e.g., 15 excavators, 8 dump trucks, 20 agricultural tractors", "Operating conditions, specific requirements, timeline, etc."],
+                formButton: "Request Free Quote"
+            },
+            et: {
+                lang: 'ET',
+                langAlt: 'EN',
+                nav: ["Avaleht", "Tooted", "Valdkonnad", "Meist", "Kontakt"],
+                contactTitle: "Küsi professionaalset pakkumist",
+                contactInfoTitle: "Mida saad",
+                get: [
+                    "<b>Parandab kuni 30mm torkeavad koheselt</b>—ei mingit peatumist ega seisakut.",
+                    "<b>Kaitseb jäädavalt</b> kogu rehvi eluea—üks paigaldus, korduvkasutust pole vaja.",
+                    "Toimib <b>kõigis tingimustes</b>: maanteel, maastikul, miinuskraadides, tööstuses.",
+                    "Usaldavad <b>Eesti Kaitsevägi</b>, Kuusakoski ja paljud teised.",
+                    "<b>20% pikem rehvi eluiga, 95% vähem torkeauke, 3% kütuse kokkuhoid.</b>",
+                    "Ei eraldu—hooldusvaba, murevaba."
+                ],
+                formTitle: "Küsi pakkumist",
+                formLabels: ["Ettevõtte nimi", "Kontaktisik", "E-post", "Telefon", "Sõidukipargi suurus ja tüübid", "Lisainfo"],
+                formPlaceholders: ["", "", "", "", "nt 15 ekskavaatorit, 8 kallurit, 20 traktorit", "Töötingimused, erisoovid, ajakava jms."],
+                formButton: "Saada päring"
+            }
         };
         function setLang(lang) {
-            const t = lang === 'et' ? et : en;
-            // Navigation
+            const t = translations[lang];
+            // Nav
             document.querySelectorAll('.nav-links li a').forEach((el, i) => { el.innerHTML = t.nav[i]; });
-            // Hero
-            document.querySelector('.hero h1').innerHTML = t.hero_h1;
-            document.querySelector('.hero p').innerHTML = t.hero_p;
-            document.querySelector('.hero .cta-button').innerHTML = t.cta;
-            // Section titles
-            document.querySelectorAll('.section-title')[0].innerHTML = t.products_title;
-            document.querySelectorAll('.section-title')[1].innerHTML = t.industries_title;
-            document.querySelectorAll('.section-title')[2].innerHTML = t.why_title;
-            document.querySelectorAll('.section-title')[3].innerHTML = t.contact_title;
-            // Products
-            const cards = document.querySelectorAll('.product-card');
-            cards[0].querySelector('h3').innerHTML = t.heavy.title;
-            cards[0].querySelector('p').innerHTML = t.heavy.desc;
-            cards[0].querySelector('.repair-size').innerHTML = t.heavy.repair;
-            cards[1].querySelector('h3').innerHTML = t.armour.title;
-            cards[1].querySelector('p').innerHTML = t.armour.desc;
-            cards[1].querySelector('.repair-size').innerHTML = t.armour.repair;
-            cards[2].querySelector('h3').innerHTML = t.hydro.title;
-            cards[2].querySelector('p').innerHTML = t.hydro.desc;
-            cards[2].querySelector('.repair-size').innerHTML = t.hydro.repair;
-            cards[3].querySelector('h3').innerHTML = t.standard.title;
-            cards[3].querySelector('p').innerHTML = t.standard.desc;
-            cards[3].querySelector('.repair-size').innerHTML = t.standard.repair;
-            // Stats
-            document.getElementById('stat1-label').innerHTML = t.stats[0];
-            document.getElementById('stat2-label').innerHTML = t.stats[1];
-            document.getElementById('stat3-label').innerHTML = t.stats[2];
-            document.getElementById('stat4-label').innerHTML = t.stats[3];
-            // Contact
-            document.querySelector('.contact-info h3').innerHTML = t.contact_h3;
-            document.querySelector('.contact-form h3').innerHTML = t.contact_form_h3;
+            // Contact section
+            document.getElementById('contact-title').innerHTML = t.contactTitle;
+            document.getElementById('contact-info-title').innerHTML = t.contactInfoTitle;
+            for (let i = 1; i <= 6; i++) {
+                document.getElementById('get'+i).innerHTML = t.get[i-1];
+            }
+            document.querySelector('.contact-form h3').innerHTML = t.formTitle;
+            // Form labels and placeholders
+            const labels = document.querySelectorAll('.contact-form label');
+            const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+            t.formLabels.forEach((label, i) => { labels[i].innerHTML = label; });
+            t.formPlaceholders.forEach((ph, i) => { if (ph) inputs[i].placeholder = ph; });
+            document.querySelector('.contact-form button').innerHTML = t.formButton;
+            // Language bar
+            document.getElementById('lang-en').style.fontWeight = lang === 'en' ? 'bold' : 'normal';
+            document.getElementById('lang-et').style.fontWeight = lang === 'et' ? 'bold' : 'normal';
         }
-        document.getElementById('lang-en').onclick = () => {
-            setLang('en');
-            document.getElementById('lang-en').style.fontWeight = 'bold';
-            document.getElementById('lang-et').style.fontWeight = 'normal';
-        };
-        document.getElementById('lang-et').onclick = () => {
-            setLang('et');
-            document.getElementById('lang-en').style.fontWeight = 'normal';
-            document.getElementById('lang-et').style.fontWeight = 'bold';
-        };
-        // Default to EN
+        document.getElementById('lang-en').onclick = () => setLang('en');
+        document.getElementById('lang-et').onclick = () => setLang('et');
         setLang('en');
     </script>
 </body>
