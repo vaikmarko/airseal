@@ -450,7 +450,7 @@
     <header>
         <nav class="container">
             <div class="logo" style="display:flex;align-items:center;gap:1rem;">
-                <img src="assets/Air-Seal-Trademark-Logo.png" alt="Air-Seal Products Trademark Logo" style="height:54px;width:auto;max-width:180px;display:block;" />
+                <img src="./assets/Air-Seal-Trademark-Logo.png" alt="Air-Seal Products Trademark Logo" style="height:54px;width:auto;max-width:180px;display:block;" />
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -637,24 +637,16 @@
         <div class="container">
             <h2 class="section-title">Get Your Free Professional Quote</h2>
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-info" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
                     <h3>What You Get</h3>
-                    <div class="contact-highlight">
-                        <h4>✔️ Custom Solution</h4>
-                        <p>We analyze your fleet and operating conditions to recommend the best Air-Seal product and application method.</p>
-                    </div>
-                    <div class="contact-highlight">
-                        <h4>✔️ Fast ROI</h4>
-                        <p>95% puncture reduction, 20% longer tire life, 3% fuel savings. Most clients see return on investment within 3-6 months.</p>
-                    </div>
-                    <div class="contact-highlight">
-                        <h4>✔️ Professional Service</h4>
-                        <p>Installation by certified technicians, technical support, and ongoing maintenance advice.</p>
-                    </div>
-                    <div class="contact-highlight">
-                        <h4>✔️ Trusted by Industry</h4>
-                        <p>Defense, mining, agriculture, and logistics leaders rely on Air-Seal for uninterrupted operations.</p>
-                    </div>
+                    <ul style="list-style:disc inside;margin:2rem auto 0 auto;padding:0;max-width:600px;text-align:left;">
+                        <li><b>Seals up to 30mm punctures instantly</b>—no stopping, no downtime.</li>
+                        <li><b>Permanently protects</b> for the life of the tire—one application, no reapplication.</li>
+                        <li>Works in <b>all conditions</b>: on-road, off-road, sub-zero, heavy industry.</li>
+                        <li>Trusted by <b>Estonian Defense Forces</b>, Kuusakoski, and more.</li>
+                        <li><b>20% longer tire life, 95% fewer punctures, 3% fuel savings.</b></li>
+                        <li>Zero separation—no maintenance, no hassle.</li>
+                    </ul>
                 </div>
                 <div class="contact-form">
                     <h3>Request Your Quote</h3>
@@ -694,7 +686,7 @@
     <footer>
         <div class="container">
             <p>Official distributor of Air-Seal Products for Baltic and Nordic regions.</p>
-            <p style="margin-top:1rem;font-size:0.95rem;">Osaühing Baltsec Grupp | info@air-seal.eu | Registry code: 10951788 | VAT: EE100831836 | &copy; <span id="year"></span></p>
+            <p style="margin-top:1rem;font-size:0.95rem;">Osaühing Baltsec Grupp | info@air-seal.eu | Registry code: 10951788 | VAT: EE100831836</p>
         </div>
     </footer>
 
@@ -724,9 +716,6 @@
                 header.style.backdropFilter = 'none';
             }
         });
-
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
 
         // Language switcher
         const en = {
