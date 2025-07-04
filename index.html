@@ -448,6 +448,44 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .reviews-carousel {
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            padding: 0 2vw 2rem 2vw;
+            box-sizing: border-box;
+            margin-bottom: 2rem;
+        }
+        .review-card {
+            display: inline-block;
+            width: 340px;
+            min-width: 340px;
+            max-width: 340px;
+            background: #fff;
+            color: #2a5298;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            margin: 0 0.5rem;
+            vertical-align: top;
+            flex-shrink: 0;
+        }
+        @media (max-width: 600px) {
+            .review-card {
+                width: 90vw;
+                min-width: 90vw;
+                max-width: 90vw;
+                padding: 1.2rem;
+            }
+            .reviews-carousel {
+                gap: 1rem;
+                padding: 0 1vw 1.5rem 1vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -594,16 +632,16 @@
         <div class="container" style="text-align:center;">
             <h2 class="section-title" id="trust-title" data-i18n="trust-title">Trusted by Industry Leaders</h2>
             <p id="trust-desc" data-i18n="trust-desc" style="font-size:1.1rem;max-width:700px;margin:0 auto 2rem;">Air-Seal is relied on by defense forces, major construction and mining companies, waste management, and leading agricultural operations across the Baltics and Nordics.</p>
-            <div class="reviews-carousel" style="overflow-x:auto;white-space:nowrap;display:flex;gap:2rem;justify-content:center;margin:2rem 0;">
-                <div class="review-card" style="display:inline-block;min-width:320px;max-width:400px;background:#fff;color:#2a5298;padding:2rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin:0 0.5rem;vertical-align:top;">
+            <div class="reviews-carousel">
+                <div class="review-card">
                     <p class="review-text" data-i18n="review1">"We haven't had a single tire-related breakdown since switching to Air-Seal."</p>
                     <div class="review-author" data-i18n="review1-author">– Fleet Manager, Major Baltic Construction Firm</div>
                 </div>
-                <div class="review-card" style="display:inline-block;min-width:320px;max-width:400px;background:#fff;color:#2a5298;padding:2rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin:0 0.5rem;vertical-align:top;">
+                <div class="review-card">
                     <p class="review-text" data-i18n="review2">"Fuel savings and zero downtime. Air-Seal is a must for any serious fleet."</p>
                     <div class="review-author" data-i18n="review2-author">– Logistics Director, Nordic Transport</div>
                 </div>
-                <div class="review-card" style="display:inline-block;min-width:320px;max-width:400px;background:#fff;color:#2a5298;padding:2rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin:0 0.5rem;vertical-align:top;">
+                <div class="review-card">
                     <p class="review-text" data-i18n="review3">"No more puncture emergencies. Our agricultural equipment just keeps running."</p>
                     <div class="review-author" data-i18n="review3-author">– Farm Owner, Estonia</div>
                 </div>
