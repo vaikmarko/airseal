@@ -470,8 +470,10 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div id="lang-bar" style="background:none;color:#fff;padding:0;text-align:right;font-size:1rem;display:flex;align-items:center;gap:0.5rem;">
-                <span id="lang-en" style="cursor:pointer;font-weight:bold;">EN</span> |
-                <span id="lang-et" style="cursor:pointer;">ET</span>
+                <span id="lang-en" style="cursor:pointer;font-weight:bold;">🇬🇧 EN</span> |
+                <span id="lang-ee" style="cursor:pointer;">🇪🇪 EE</span> |
+                <span id="lang-fi" style="cursor:pointer;">🇫🇮 FI</span> |
+                <span id="lang-se" style="cursor:pointer;">🇸🇪 SE</span>
             </div>
         </nav>
     </header>
@@ -712,7 +714,6 @@
         const translations = {
             en: {
                 lang: 'EN',
-                langAlt: 'ET',
                 nav: ["Home", "Products", "Industries", "Contact"],
                 industriesTitle: "Who Uses Our Products?",
                 industriesDesc: "Air-Seal Products are trusted by major fleets and organizations in the following sectors:",
@@ -744,7 +745,6 @@
             },
             et: {
                 lang: 'ET',
-                langAlt: 'EN',
                 nav: ["Avaleht", "Tooted", "Valdkonnad", "Kontakt"],
                 industriesTitle: "Kes kasutavad meie tooteid?",
                 industriesDesc: "Air-Seal tooteid usaldavad järgmiste valdkondade suurimad ettevõtted:",
@@ -758,6 +758,68 @@
                     "OEM / Edasimüüjad",
                     "Omavalitsused",
                     "Kaitsevägi & riigisektor"
+                ],
+                contactTitle: "Küsi professionaalset pakkumist",
+                contactInfoTitle: "Mida saad",
+                get: [
+                    "<b>Parandab kuni 30mm torkeavad koheselt</b>—ei mingit peatumist ega seisakut.",
+                    "<b>Kaitseb jäädavalt</b> kogu rehvi eluea—üks paigaldus, korduvkasutust pole vaja.",
+                    "Toimib <b>kõigis tingimustes</b>: maanteel, maastikul, miinuskraadides, tööstuses.",
+                    "Usaldavad <b>Eesti Kaitsevägi</b>, Kuusakoski ja paljud teised.",
+                    "<b>20% pikem rehvi eluiga, 95% vähem torkeauke, 3% kütuse kokkuhoid.</b>",
+                    "Ei eraldu—hooldusvaba, murevaba."
+                ],
+                formTitle: "Küsi pakkumist",
+                formLabels: ["Ettevõtte nimi", "Kontaktisik", "E-post", "Telefon", "Sõidukipargi suurus ja tüübid", "Lisainfo"],
+                formPlaceholders: ["", "", "", "", "nt 15 ekskavaatorit, 8 kallurit, 20 traktorit", "Töötingimused, erisoovid, ajakava jms."],
+                formButton: "Saada päring"
+            },
+            fi: {
+                lang: 'FI',
+                nav: ["Etusivu", "Tuotteet", "Toimialat", "Yhteystiedot"],
+                industriesTitle: "Ketkä käyttävät tuotteitamme?",
+                industriesDesc: "Air-Seal-tuotteisiin luottavat suurimmat yritykset seuraavilla aloilla:",
+                industries: [
+                    "Tiekuljetus",
+                    "Jätehuolto & kierrätys",
+                    "Kaivosteollisuus & louhokset",
+                    "Maatalous",
+                    "Rakennus- & purkualat",
+                    "Viherrakentaminen & hoito",
+                    "OEM / Jälleenmyyjät",
+                    "Kunnat",
+                    "Puolustusvoimat & julkinen sektori"
+                ],
+                contactTitle: "Küsi professionaalset pakkumist",
+                contactInfoTitle: "Mida saad",
+                get: [
+                    "<b>Parandab kuni 30mm torkeavad koheselt</b>—ei mingit peatumist ega seisakut.",
+                    "<b>Kaitseb jäädavalt</b> kogu rehvi eluea—üks paigaldus, korduvkasutust pole vaja.",
+                    "Toimib <b>kõigis tingimustes</b>: maanteel, maastikul, miinuskraadides, tööstuses.",
+                    "Usaldavad <b>Eesti Kaitsevägi</b>, Kuusakoski ja paljud teised.",
+                    "<b>20% pikem rehvi eluiga, 95% vähem torkeauke, 3% kütuse kokkuhoid.</b>",
+                    "Ei eraldu—hooldusvaba, murevaba."
+                ],
+                formTitle: "Küsi pakkumist",
+                formLabels: ["Ettevõtte nimi", "Kontaktisik", "E-post", "Telefon", "Sõidukipargi suurus ja tüübid", "Lisainfo"],
+                formPlaceholders: ["", "", "", "", "nt 15 ekskavaatorit, 8 kallurit, 20 traktorit", "Töötingimused, erisoovid, ajakava jms."],
+                formButton: "Saada päring"
+            },
+            se: {
+                lang: 'SE',
+                nav: ["Hem", "Produkter", "Branscher", "Kontakt"],
+                industriesTitle: "Vem använder våra produkter?",
+                industriesDesc: "Air-Seal-produkter används av ledande företag inom följande branscher:",
+                industries: [
+                    "Vägtransporter",
+                    "Avfallshantering & återvinning",
+                    "Gruvdrift & stenbrott",
+                    "Jordbruk",
+                    "Bygg & rivning",
+                    "Markskötsel & underhåll",
+                    "OEM / Återförsäljare",
+                    "Kommuner",
+                    "Försvar & offentlig sektor"
                 ],
                 contactTitle: "Küsi professionaalset pakkumist",
                 contactInfoTitle: "Mida saad",
@@ -798,10 +860,14 @@
             document.querySelector('.contact-form button').innerHTML = t.formButton;
             // Language bar
             document.getElementById('lang-en').style.fontWeight = lang === 'en' ? 'bold' : 'normal';
-            document.getElementById('lang-et').style.fontWeight = lang === 'et' ? 'bold' : 'normal';
+            document.getElementById('lang-ee').style.fontWeight = lang === 'ee' ? 'bold' : 'normal';
+            document.getElementById('lang-fi').style.fontWeight = lang === 'fi' ? 'bold' : 'normal';
+            document.getElementById('lang-se').style.fontWeight = lang === 'se' ? 'bold' : 'normal';
         }
         document.getElementById('lang-en').onclick = () => setLang('en');
-        document.getElementById('lang-et').onclick = () => setLang('et');
+        document.getElementById('lang-ee').onclick = () => setLang('ee');
+        document.getElementById('lang-fi').onclick = () => setLang('fi');
+        document.getElementById('lang-se').onclick = () => setLang('se');
         setLang('en');
     </script>
 </body>
