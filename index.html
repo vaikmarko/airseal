@@ -213,7 +213,7 @@
         /* Industries Section */
         .industries {
             padding: 80px 0;
-            background: white;
+            background: #f0f4ff; /* Light blue background */
         }
 
         .industries-grid {
@@ -590,17 +590,24 @@
     </section>
 
     <!-- Proof & Trust Section -->
-    <section class="proof-trust" style="background:#f8f9fa;padding:60px 0;">
+    <section class="proof-trust" style="background: linear-gradient(135deg, #2a5298 0%, #764ba2 100%); color: #fff; padding: 60px 0;">
         <div class="container" style="text-align:center;">
             <h2 class="section-title" id="trust-title" data-i18n="trust-title">Trusted by Industry Leaders</h2>
             <p id="trust-desc" data-i18n="trust-desc" style="font-size:1.1rem;max-width:700px;margin:0 auto 2rem;">Air-Seal is relied on by defense forces, major construction and mining companies, waste management, and leading agricultural operations across the Baltics and Nordics.</p>
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem;align-items:center;margin:2rem 0;">
-                <span class="product-icon">🛡️</span>
-                <span class="product-icon">🚜</span>
-                <span class="product-icon">💧</span>
-                <span class="product-icon">🚗</span>
+            <div class="reviews-carousel" style="overflow-x:auto;white-space:nowrap;display:flex;gap:2rem;justify-content:center;margin:2rem 0;">
+                <div class="review-card" style="display:inline-block;min-width:320px;max-width:400px;background:#fff;color:#2a5298;padding:2rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin:0 0.5rem;vertical-align:top;">
+                    <p class="review-text" data-i18n="review1">"We haven't had a single tire-related breakdown since switching to Air-Seal."</p>
+                    <div class="review-author" data-i18n="review1-author">– Fleet Manager, Major Baltic Construction Firm</div>
+                </div>
+                <div class="review-card" style="display:inline-block;min-width:320px;max-width:400px;background:#fff;color:#2a5298;padding:2rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin:0 0.5rem;vertical-align:top;">
+                    <p class="review-text" data-i18n="review2">"Fuel savings and zero downtime. Air-Seal is a must for any serious fleet."</p>
+                    <div class="review-author" data-i18n="review2-author">– Logistics Director, Nordic Transport</div>
+                </div>
+                <div class="review-card" style="display:inline-block;min-width:320px;max-width:400px;background:#fff;color:#2a5298;padding:2rem;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin:0 0.5rem;vertical-align:top;">
+                    <p class="review-text" data-i18n="review3">"No more puncture emergencies. Our agricultural equipment just keeps running."</p>
+                    <div class="review-author" data-i18n="review3-author">– Farm Owner, Estonia</div>
+                </div>
             </div>
-            <p id="trust-quote" data-i18n="trust-quote" style="margin-top:2rem;font-style:italic;">"We haven't had a single tire-related breakdown since switching to Air-Seal."<br>– Fleet Manager, Major Baltic Construction Firm</p>
         </div>
     </section>
 
@@ -762,7 +769,13 @@
                 'get3': 'Works in <b>all conditions</b>: on-road, off-road, sub-zero, heavy industry.',
                 'get4': 'Trusted by <b>Estonian Defense Forces</b>, Kuusakoski, and more.',
                 'get5': '<b>20% longer tire life, 95% fewer punctures, 3% fuel savings.</b>',
-                'get6': 'maintenance-free, hassle-free.'
+                'get6': 'maintenance-free, hassle-free.',
+                'review1': '"We haven\'t had a single tire-related breakdown since switching to Air-Seal."',
+                'review1-author': '– Fleet Manager, Major Baltic Construction Firm',
+                'review2': '"Fuel savings and zero downtime. Air-Seal is a must for any serious fleet."',
+                'review2-author': '– Logistics Director, Nordic Transport',
+                'review3': '"No more puncture emergencies. Our agricultural equipment just keeps running."',
+                'review3-author': '– Farm Owner, Estonia'
             },
             et: {
                 'nav-home': 'Avaleht',
@@ -781,7 +794,7 @@
                 'industries-desc': "Air-Seal tooteid usaldavad järgmiste valdkondade suurimad ettevõtted:",
                 'trust-title': "Usaldavad tööstuse liidrid",
                 'trust-desc': "Air-Seali usaldavat kaitsevägi, suuremad ehitus- ja kaevandusettevõtted, jäätmekäitlus ning juhtivad põllumajandusfirmad üle Baltikumi ja Põhjamaade.",
-                'trust-quote': '"Pärast Air-Sealile üleminekut pole meil olnud ühtegi rehviriket."<br>– Suure Balti ehitusfirma autopargi juht',
+                'trust-quote': '"Pärast Air-Sealile üleminekut pole meil olnud ühtegi rehviriket."<br>– Autopargi juht, suur Balti ehitusfirma',
                 'contact-title': "Küsi personaalset pakkumist",
                 'contact-info-title': "Mida saad",
                 'footer-main': "Air-Seal Products ametlik esindaja Baltikumis ja Põhjamaades.",
@@ -834,31 +847,37 @@
                 'get2': '<b>Kaitseb jäädavalt</b> koko rehvi eluea—üks paigaldus, korduvkasutust pole vaja.',
                 'get3': 'Toimib <b>kõigis tingimustes</b>: maanteel, maastikul, miinuskraadides, tööstuses.',
                 'get4': 'Usaldavad <b>Eesti Kaitsevägi</b>, Kuusakoski ja paljud teised.',
-                'get5': '<b>20% pikem rehvi eluiga, 95% vähem torkeauke, 3% kütuse kokkuhoid.</b>',
-                'get6': 'hooldusvaba, murevaba.'
+                'get5': '<b>20% pikem rehvi eluiga, 95% vähemmän torkeauke, 3% kütuse kokkuhoid.</b>',
+                'get6': 'hooldusvaba, murevaba.',
+                'review1': '"Pärast Air-Sealile üleminekut pole meil olnud ühtegi rehviriket."',
+                'review1-author': '– Autopargi juht, suur Balti ehitusfirma',
+                'review2': '"Kütuse kokkuhoid ja null seisakuid. Air-Seal on iga tõsise autopargi jaoks kohustuslik."',
+                'review2-author': '– Logistikadirektor, Nordic Transport',
+                'review3': '"Enam pole torkeavariisid. Meie põllumajandustehnika lihtsalt töötab edasi."',
+                'review3-author': '– Taluomanik, Eesti'
             },
             fi: {
                 'nav-home': 'Avaleht',
                 'nav-products': 'Tooted',
                 'nav-industries': 'Valdkonnad',
                 'nav-contact': 'Kontakt',
-                'hero-title': "Lopeta rengasrikot. Iäksi.",
-                'hero-desc': "Air-Seal on ainoa rengastiiviste, joka on todistetusti sulkee jopa 30 mm reiät välittömästi ja pysyvästi – myös vaativimmissa olosuhteissa. Luottavat puolustusvoimat, kaivokset ja maatalous. Suojaa kalustosi, säästä kustannuksissa ja vältä seisokit jo tänään.",
-                'hero-cta': "Pyydä ammattilaisen tarjous",
-                'stat1-label': "Rengasrikkojen väheneminen",
-                'stat2-label': "Renkaan käyttöiän kasvu",
-                'stat3-label': "Polttoaineen säästö",
-                'stat4-label': "Vuosien todistetut tulokset",
-                'products-title': "Ammattilaistason rengastiivisteratkaisut",
+                'hero-title': "Lopeta rehvi torked. Igaveseks.",
+                'hero-desc': "Air-Seal on ainus rehvitihend, mis tõestatult sulgeb kuni 30mm torkeavad koheselt ja jäädavalt – ka kõige karmimates tingimustes. Usaldavad kaitsevägi, kaevandused ja põllumajandus. Kaitse oma autoparki, vähenda kulusid ja väldi seisakuid juba täna.",
+                'hero-cta': "Küsi personaalset pakkumist",
+                'stat1-label': "Torkekindluse kasv",
+                'stat2-label': "Rehvi eluea pikenemine",
+                'stat3-label': "Kütusekulu vähenemine",
+                'stat4-label': "Aastatepikkune tõestatud tulemus",
+                'products-title': "Professionaalset rehvitihendi lahendused",
                 'industries-title': "Ketkä käyttävät tuotteitamme?",
                 'industries-desc': "Air-Seal-tuotteisiin luottavat suurimmat yritykset seuraavilla aloilla:",
                 'trust-title': "Alan johtajien luottama",
                 'trust-desc': "Air-Sealiin luottavat puolustusvoimat, suuret rakennus- ja kaivosyhtiöt, jätehuolto sekä johtavat maatalousyritykset Baltian ja Pohjoismaiden alueella.",
-                'trust-quote': '"Air-Sealiin siirtymisen jälkeen ei yhtään rengasrikkoa."<br>– Suuren balttialaisen rakennusliikkeen kalustopäällikkö',
+                'trust-quote': '"Yhtään rengasrikkoa ei ole ollut Air-Sealiin siirtymisen jälkeen."<br>– Kalustopäällikkö, suuri balttialainen rakennusliike',
                 'contact-title': "Küsi personaalset pakkumist",
-                'contact-info-title': "Mitä saat",
+                'contact-info-title': "Mida saat",
                 'footer-main': "Air-Seal Productsin virallinen edustaja Baltiassa ja Pohjoismaissa.",
-                'footer-company': "Osaühing Baltsec Grupp | info@air-seal.eu | Rekisterinumero: 10951788 | ALV: EE100831836",
+                'footer-company': "Osaühing Baltsec Grupp | info@air-seal.eu | Registrikood: 10951788 | ALV: EE100831836",
                 'product1-title': 'Heavy Duty Sealant',
                 'product1-desc': 'Perfect for tractors, dumpers, and telehandlers. Provides instant puncture repair and lasts the entire life of the tire. <strong>One application protects permanently</strong> - no reapplication needed.',
                 'product1-repair': 'Repairs up to 15mm',
@@ -905,10 +924,16 @@
                 'contact-form-title': 'Pyydä tarjous',
                 'get1': '<b>Tiivistää jopa 30 mm reiät välittömästi</b>—ei pysähdyksiä, ei seisokkeja.',
                 'get2': '<b>Suojaa pysyvästi</b> koko renkaan eliniän—yksi käsittely, ei uudelleenkäsittelyä.',
-                'get3': 'Toimii <b>kaikissa olosuhteissa</b>: tiellä, maastossa, pakkasessa, raskaassa käytössä.',
+                'get3': 'Toimii <b>kõigis tingimustes</b>: tiellä, maastossa, pakkasessa, raskaassa käytössä.',
                 'get4': 'Luottavat <b>puolustusvoimat</b>, Kuusakoski ja monet muut.',
                 'get5': '<b>20% pidempi käyttöikä, 95% vähemmän rengasrikkoja, 3% polttoainesäästö.</b>',
-                'get6': 'maintenance-free, hassle-free.'
+                'get6': 'hooldusvaba, murevaba.',
+                'review1': '"Yhtään rengasrikkoa ei ole ollut Air-Sealiin siirtymisen jälkeen."',
+                'review1-author': '– Kalustopäällikkö, suuri balttialainen rakennusliike',
+                'review2': '"Polttoainesäästöä ja ei seisokkeja. Air-Seal on välttämätön jokaiselle ammattikalustolle."',
+                'review2-author': '– Logistiikkajohtaja, Nordic Transport',
+                'review3': '"Ei enää rengashätätilanteita. Maatalouskoneemme toimivat keskeytyksettä."',
+                'review3-author': '– Maanviljelijä, Viro'
             },
             se: {
                 'nav-home': 'Avaleht',
@@ -981,7 +1006,13 @@
                 'get3': 'Fungerar <b>i alla förhållanden</b>: på väg, terräng, kyla, tung industri.',
                 'get4': 'Används av <b>Försvarsmakten</b>, Kuusakoski och många fler.',
                 'get5': '<b>20% längre livslängd, 95% färre punkteringar, 3% bränslebesparing.</b>',
-                'get6': 'maintenance-free, hassle-free.'
+                'get6': 'maintenance-free, hassle-free.',
+                'review1': '"Vi har inte haft ett enda däckhaveri sedan vi bytte till Air-Seal."',
+                'review1-author': '– Fordonschef, stort byggföretag i Baltikum',
+                'review2': '"Bränslebesparing och ingen stilleståndstid. Air-Seal är ett måste för varje seriös flotta."',
+                'review2-author': '– Logistikchef, Nordic Transport',
+                'review3': '"Inga fler punkteringsproblem. Vår lantbruksutrustning bara fungerar."',
+                'review3-author': '– Gårdsägare, Estland'
             }
         };
         function setLang(lang) {
