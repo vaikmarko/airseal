@@ -449,41 +449,68 @@
             }
         }
 
-        .reviews-carousel {
-            width: 100%;
-            overflow-x: auto;
-            white-space: nowrap;
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            padding: 0 2vw 2rem 2vw;
-            box-sizing: border-box;
-            margin-bottom: 2rem;
-        }
-        .review-card {
-            display: inline-block;
-            width: 340px;
-            min-width: 340px;
-            max-width: 340px;
+        .proof-trust {
             background: #fff;
             color: #2a5298;
-            padding: 2rem;
-            border-radius: 16px;
+            padding: 60px 0;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0 0 0;
+        }
+        .testimonial-card {
+            background: #fff;
+            color: #2a5298;
+            border-radius: 18px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-            margin: 0 0.5rem;
-            vertical-align: top;
-            flex-shrink: 0;
+            padding: 2.2rem 2.5rem;
+            max-width: 480px;
+            min-width: 280px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            font-size: 1.15rem;
+            transition: box-shadow 0.3s;
+        }
+        .testimonial-author {
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            color: #667eea;
+            font-style: italic;
+        }
+        .testimonial-nav {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+        .testimonial-arrow {
+            background: #2a5298;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.7rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .testimonial-arrow:hover {
+            background: #764ba2;
         }
         @media (max-width: 600px) {
-            .review-card {
-                width: 90vw;
-                min-width: 90vw;
-                max-width: 90vw;
-                padding: 1.2rem;
-            }
-            .reviews-carousel {
-                gap: 1rem;
-                padding: 0 1vw 1.5rem 1vw;
+            .testimonial-card {
+                padding: 1.2rem 0.7rem;
+                font-size: 1rem;
+                max-width: 95vw;
             }
         }
     </style>
@@ -628,22 +655,18 @@
     </section>
 
     <!-- Proof & Trust Section -->
-    <section class="proof-trust" style="background: linear-gradient(135deg, #2a5298 0%, #764ba2 100%); color: #fff; padding: 60px 0;">
-        <div class="container" style="text-align:center;">
+    <section class="proof-trust">
+        <div class="container">
             <h2 class="section-title" id="trust-title" data-i18n="trust-title">Trusted by Industry Leaders</h2>
             <p id="trust-desc" data-i18n="trust-desc" style="font-size:1.1rem;max-width:700px;margin:0 auto 2rem;">Air-Seal is relied on by defense forces, major construction and mining companies, waste management, and leading agricultural operations across the Baltics and Nordics.</p>
-            <div class="reviews-carousel">
-                <div class="review-card">
-                    <p class="review-text" data-i18n="review1">"We haven't had a single tire-related breakdown since switching to Air-Seal."</p>
-                    <div class="review-author" data-i18n="review1-author">– Fleet Manager, Major Baltic Construction Firm</div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <p class="testimonial-text" id="testimonial-text" data-i18n="review1">"We haven't had a single tire-related breakdown since switching to Air-Seal."</p>
+                    <div class="testimonial-author" id="testimonial-author" data-i18n="review1-author">– Fleet Manager, Major Baltic Construction Firm</div>
                 </div>
-                <div class="review-card">
-                    <p class="review-text" data-i18n="review2">"Fuel savings and zero downtime. Air-Seal is a must for any serious fleet."</p>
-                    <div class="review-author" data-i18n="review2-author">– Logistics Director, Nordic Transport</div>
-                </div>
-                <div class="review-card">
-                    <p class="review-text" data-i18n="review3">"No more puncture emergencies. Our agricultural equipment just keeps running."</p>
-                    <div class="review-author" data-i18n="review3-author">– Farm Owner, Estonia</div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-arrow" id="testimonial-prev" aria-label="Previous testimonial">&#8592;</button>
+                    <button class="testimonial-arrow" id="testimonial-next" aria-label="Next testimonial">&#8594;</button>
                 </div>
             </div>
         </div>
@@ -962,7 +985,7 @@
                 'contact-form-title': 'Pyydä tarjous',
                 'get1': '<b>Tiivistää jopa 30 mm reiät välittömästi</b>—ei pysähdyksiä, ei seisokkeja.',
                 'get2': '<b>Suojaa pysyvästi</b> koko renkaan eliniän—yksi käsittely, ei uudelleenkäsittelyä.',
-                'get3': 'Toimii <b>kõigis tingimustes</b>: tiellä, maastossa, pakkasessa, raskaassa käytössä.',
+                'get3': 'Toimii <b>kõigis tingimustes</b>: maanteel, maastikul, miinuskraadides, tööstuses.',
                 'get4': 'Luottavat <b>puolustusvoimat</b>, Kuusakoski ja monet muut.',
                 'get5': '<b>20% pidempi käyttöikä, 95% vähemmän rengasrikkoja, 3% polttoainesäästö.</b>',
                 'get6': 'hooldusvaba, murevaba.',
@@ -1083,6 +1106,46 @@
         // On page load, set language from localStorage or default to 'en'
         const savedLang = localStorage.getItem('airseal-lang') || 'en';
         setLang(savedLang);
+
+        // Testimonial slider logic
+        const testimonials = [
+            { textKey: 'review1', authorKey: 'review1-author' },
+            { textKey: 'review2', authorKey: 'review2-author' },
+            { textKey: 'review3', authorKey: 'review3-author' }
+        ];
+        let testimonialIndex = 0;
+        let testimonialTimer;
+        function showTestimonial(idx) {
+            const lang = localStorage.getItem('airseal-lang') || 'en';
+            const t = translations[lang];
+            const { textKey, authorKey } = testimonials[idx];
+            document.getElementById('testimonial-text').innerHTML = t[textKey];
+            document.getElementById('testimonial-author').innerHTML = t[authorKey];
+        }
+        function nextTestimonial() {
+            testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+            showTestimonial(testimonialIndex);
+            resetTestimonialTimer();
+        }
+        function prevTestimonial() {
+            testimonialIndex = (testimonialIndex - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(testimonialIndex);
+            resetTestimonialTimer();
+        }
+        function resetTestimonialTimer() {
+            clearInterval(testimonialTimer);
+            testimonialTimer = setInterval(nextTestimonial, 6000);
+        }
+        document.getElementById('testimonial-next').onclick = nextTestimonial;
+        document.getElementById('testimonial-prev').onclick = prevTestimonial;
+        // Update testimonial on language change
+        const origSetLang = setLang;
+        setLang = function(lang) {
+            origSetLang(lang);
+            showTestimonial(testimonialIndex);
+        };
+        showTestimonial(testimonialIndex);
+        testimonialTimer = setInterval(nextTestimonial, 6000);
     </script>
 </body>
 </html>
