@@ -469,6 +469,10 @@
                 <li><a href="#industries">Industries</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div id="lang-bar" style="background:none;color:#fff;padding:0;text-align:right;font-size:1rem;display:flex;align-items:center;gap:0.5rem;">
+                <span id="lang-en" style="cursor:pointer;font-weight:bold;">EN</span> |
+                <span id="lang-et" style="cursor:pointer;">ET</span>
+            </div>
         </nav>
     </header>
 
@@ -573,45 +577,18 @@
     <!-- Industries Section -->
     <section id="industries" class="industries">
         <div class="container">
-            <h2 class="section-title">Who Uses Our Products?</h2>
-            <p style="text-align:center;font-size:1.15rem;margin:0 0 2.5rem 0;max-width:700px;margin-left:auto;margin-right:auto;">Air-Seal Products are trusted by major fleets and organizations in the following sectors:</p>
-            <div class="industries-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); justify-items: center; align-items: stretch;">
-                <div class="industry-card">
-                    <span class="product-icon" title="Road Haulage">🚗</span>
-                    <h3>Road Haulage</h3>
-                </div>
-                <div class="industry-card">
-                    <span class="product-icon" title="Waste Management & Recycling">🛻</span>
-                    <h3>Waste Management & Recycling</h3>
-                </div>
-                <div class="industry-card">
-                    <span class="product-icon" title="Mining & Quarrying">🛡️</span>
-                    <h3>Mining & Quarrying</h3>
-                </div>
-                <div class="industry-card">
-                    <span class="product-icon" title="Agricultural">🚜</span>
-                    <h3>Agricultural</h3>
-                </div>
-                <div class="industry-card">
-                    <span class="product-icon" title="Construction & Demolition">🏗️</span>
-                    <h3>Construction & Demolition</h3>
-                </div>
-                <div class="industry-card">
-                    <span class="product-icon" title="Grounds Care">💧</span>
-                    <h3>Grounds Care</h3>
-                </div>
-                <div class="industry-card">
-                    <span class="product-icon" title="OEM / Dealers">🏭</span>
-                    <h3>OEM / Dealers</h3>
-                </div>
-                <div class="industry-card">
-                    <span class="product-icon" title="Local Authorities">🏢</span>
-                    <h3>Local Authorities</h3>
-                </div>
-                <div class="industry-card">
-                    <span class="product-icon" title="Defense & Government">🛡️</span>
-                    <h3>Defense & Government</h3>
-                </div>
+            <h2 class="section-title" id="industries-title">Who Uses Our Products?</h2>
+            <p style="text-align:center;font-size:1.15rem;margin:0 0 2.5rem 0;max-width:700px;margin-left:auto;margin-right:auto;" id="industries-desc">Air-Seal Products are trusted by major fleets and organizations in the following sectors:</p>
+            <div class="industries-grid" id="industries-grid" style="grid-template-columns: repeat(3, 1fr); justify-items: center; align-items: stretch;">
+                <div class="industry-card"><span class="product-icon" title="Road Haulage">🚗</span><h3 class="industry-name">Road Haulage</h3></div>
+                <div class="industry-card"><span class="product-icon" title="Waste Management & Recycling">🛻</span><h3 class="industry-name">Waste Management & Recycling</h3></div>
+                <div class="industry-card"><span class="product-icon" title="Mining & Quarrying">🛡️</span><h3 class="industry-name">Mining & Quarrying</h3></div>
+                <div class="industry-card"><span class="product-icon" title="Agricultural">🚜</span><h3 class="industry-name">Agricultural</h3></div>
+                <div class="industry-card"><span class="product-icon" title="Construction & Demolition">🏗️</span><h3 class="industry-name">Construction & Demolition</h3></div>
+                <div class="industry-card"><span class="product-icon" title="Grounds Care">💧</span><h3 class="industry-name">Grounds Care</h3></div>
+                <div class="industry-card"><span class="product-icon" title="OEM / Dealers">🏭</span><h3 class="industry-name">OEM / Dealers</h3></div>
+                <div class="industry-card"><span class="product-icon" title="Local Authorities">🏢</span><h3 class="industry-name">Local Authorities</h3></div>
+                <div class="industry-card"><span class="product-icon" title="Defense & Government">🛡️</span><h3 class="industry-name">Defense & Government</h3></div>
             </div>
         </div>
     </section>
@@ -737,6 +714,19 @@
                 lang: 'EN',
                 langAlt: 'ET',
                 nav: ["Home", "Products", "Industries", "Contact"],
+                industriesTitle: "Who Uses Our Products?",
+                industriesDesc: "Air-Seal Products are trusted by major fleets and organizations in the following sectors:",
+                industries: [
+                    "Road Haulage",
+                    "Waste Management & Recycling",
+                    "Mining & Quarrying",
+                    "Agricultural",
+                    "Construction & Demolition",
+                    "Grounds Care",
+                    "OEM / Dealers",
+                    "Local Authorities",
+                    "Defense & Government"
+                ],
                 contactTitle: "Get Your Free Professional Quote",
                 contactInfoTitle: "What You Get",
                 get: [
@@ -756,6 +746,19 @@
                 lang: 'ET',
                 langAlt: 'EN',
                 nav: ["Avaleht", "Tooted", "Valdkonnad", "Kontakt"],
+                industriesTitle: "Kes kasutavad meie tooteid?",
+                industriesDesc: "Air-Seal tooteid usaldavad järgmiste valdkondade suurimad ettevõtted:",
+                industries: [
+                    "Maanteetransport",
+                    "Jäätmekäitlus & taaskasutus",
+                    "Mäetööstus & karjäärid",
+                    "Põllumajandus",
+                    "Ehituse & lammutuse tehnika",
+                    "Haljastus & hooldus",
+                    "OEM / Edasimüüjad",
+                    "Omavalitsused",
+                    "Kaitsevägi & riigisektor"
+                ],
                 contactTitle: "Küsi professionaalset pakkumist",
                 contactInfoTitle: "Mida saad",
                 get: [
@@ -776,6 +779,10 @@
             const t = translations[lang];
             // Nav
             document.querySelectorAll('.nav-links li a').forEach((el, i) => { el.innerHTML = t.nav[i]; });
+            // Industries section
+            document.getElementById('industries-title').innerHTML = t.industriesTitle;
+            document.getElementById('industries-desc').innerHTML = t.industriesDesc;
+            document.querySelectorAll('#industries-grid .industry-name').forEach((el, i) => { el.innerHTML = t.industries[i]; });
             // Contact section
             document.getElementById('contact-title').innerHTML = t.contactTitle;
             document.getElementById('contact-info-title').innerHTML = t.contactInfoTitle;
