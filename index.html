@@ -157,7 +157,7 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -218,7 +218,7 @@
 
         .industries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -298,6 +298,20 @@
 
         .why-choose .section-title {
             color: white;
+            text-align: center;
+        }
+
+        .why-choose ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .why-choose ul li {
+            text-align: left;
         }
 
         .benefits-grid {
@@ -401,6 +415,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 900px) {
+            .products-grid, .industries-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -413,14 +433,24 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+            .products-grid, .industries-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Language Bar -->
+    <div style="background:#2a5298;color:#fff;padding:0.3rem 0;text-align:right;font-size:1rem;">
+        <span id="lang-en" style="cursor:pointer;font-weight:bold;">EN</span> |
+        <span id="lang-et" style="cursor:pointer;">ET</span>
+    </div>
+
     <!-- Header -->
     <header>
         <nav class="container">
             <div class="logo">Air-Seal Baltic & Nordic</div>
+            <div style="font-size:0.95rem;color:#e0e0e0;margin-top:0.2rem;">by Osaühing Baltsec Grupp | <a href="mailto:info@air-seal.eu" style="color:#ffd700;text-decoration:none;">info@air-seal.eu</a></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
@@ -664,6 +694,7 @@
         <div class="container">
             <p>&copy; 2024 Air-Seal Baltic & Nordic. Official distributor of Air-Seal Products for Baltic and Nordic regions.</p>
             <p>Serving Estonia, Latvia, Lithuania, Finland, Sweden, Norway, Denmark</p>
+            <p style="margin-top:1rem;font-size:0.95rem;">Osaühing Baltsec Grupp | Registry code: 10951788 | VAT: EE100831836</p>
         </div>
     </footer>
 
@@ -693,6 +724,79 @@
                 header.style.backdropFilter = 'none';
             }
         });
+
+        // Language switcher
+        const en = {
+            hero_h1: "Stop Tire Punctures. Forever.",
+            hero_p: "Air-Seal is the only tire sealant proven to instantly and permanently seal punctures up to 30mm—even in the harshest conditions. Trusted by defense, mining, and agriculture leaders. Protect your fleet, cut costs, and eliminate downtime today.",
+            cta: "Get Your Free Professional Quote",
+            products_title: "Professional Tire Sealant Solutions",
+            heavy: {title: "Heavy Duty Sealant", desc: "Perfect for tractors, dumpers, and telehandlers. Provides instant puncture repair and lasts the entire life of the tire. <b>One application protects permanently</b> - no reapplication needed.", repair: "Repairs up to 15mm"},
+            armour: {title: "Armour-Seal Premium", desc: "Maximum protection for heavy earthmoving equipment. Trusted by military forces worldwide. <b>Permanent protection in the harshest conditions</b> - your equipment keeps working.", repair: "Repairs up to 30mm"},
+            hydro: {title: "Hydro-Seal", desc: "Specially formulated for ballast-filled tires. Compatible with anti-freeze and suitable for sub-zero temperatures. <b>Works throughout the tire's lifetime</b> without separation.", repair: "Repairs up to 13mm"},
+            standard: {title: "Air-Seal Standard", desc: "Versatile solution for smaller vehicles and equipment. Suitable for cars, 4x4s, trailers, ATVs, and ride-on mowers. <b>Set it and forget it</b> - permanent protection for diverse applications.", repair: "Repairs up to 15mm"},
+            industries_title: "Industries We Serve",
+            why_title: "Why Air-Seal?",
+            contact_title: "Get Your Free Professional Quote",
+            contact_h3: "What You Get",
+            contact_form_h3: "Request Your Quote"
+        };
+
+        const et = {
+            hero_h1: "Lõpeta rehvitorked. Igaveseks.",
+            hero_p: "Air-Seal on ainus rehvihermeetik, mis tõestatult sulgeb kuni 30mm torkeavad koheselt ja jäädavalt – isegi kõige karmimates tingimustes. Usaldatud kaitse kaitseväe, kaevanduse ja põllumajanduse liidrite poolt. Kaitse oma autoparki, vähenda kulusid ja väldi seisakuid juba täna.",
+            cta: "Küsi professionaalset pakkumist",
+            products_title: "Professionaalsed rehvihermeetikud",
+            heavy: {title: "Tööstuslik hermeetik", desc: "Ideaalne traktoritele, kalluritele ja teleskooplaaduritele. Parandab torkeavad koheselt ja kestab kogu rehvi eluea. <b>Üks paigaldus kaitseb jäädavalt</b> – korduvkasutust pole vaja.", repair: "Parandab kuni 15mm"},
+            armour: {title: "Armour-Seal Premium", desc: "Maksimaalne kaitse rasketehnikale. Usaldatud sõjaväe poolt. <b>Püsiv kaitse ka kõige raskemates tingimustes</b> – teie tehnika töötab edasi.", repair: "Parandab kuni 30mm"},
+            hydro: {title: "Hydro-Seal", desc: "Spetsiaalselt ballastiga täidetud rehvidele. Sobib antifriisiga ja miinuskraadidesse. <b>Toimib kogu rehvi eluea</b> vältel ilma eraldumiseta.", repair: "Parandab kuni 13mm"},
+            standard: {title: "Air-Seal Standard", desc: "Mitmekülgne lahendus väiksematele sõidukitele ja seadmetele. Sobib autodele, 4x4-dele, haagistele, ATV-dele ja muruniidukitele. <b>Pane paika ja unusta</b> – püsiv kaitse erinevates rakendustes.", repair: "Parandab kuni 15mm"},
+            industries_title: "Teenindatavad valdkonnad",
+            why_title: "Miks Air-Seal?",
+            contact_title: "Küsi professionaalset pakkumist",
+            contact_h3: "Mida saad",
+            contact_form_h3: "Küsi pakkumist"
+        };
+
+        function setLang(lang) {
+            const t = lang === 'et' ? et : en;
+            document.querySelector('.hero h1').innerHTML = t.hero_h1;
+            document.querySelector('.hero p').innerHTML = t.hero_p;
+            document.querySelector('.hero .cta-button').innerHTML = t.cta;
+            document.querySelectorAll('.section-title')[0].innerHTML = t.products_title;
+            document.querySelectorAll('.section-title')[1].innerHTML = t.industries_title;
+            document.querySelectorAll('.section-title')[2].innerHTML = t.why_title;
+            document.querySelectorAll('.section-title')[3].innerHTML = t.contact_title;
+            // Products
+            const cards = document.querySelectorAll('.product-card');
+            cards[0].querySelector('h3').innerHTML = t.heavy.title;
+            cards[0].querySelector('p').innerHTML = t.heavy.desc;
+            cards[0].querySelector('.repair-size').innerHTML = t.heavy.repair;
+            cards[1].querySelector('h3').innerHTML = t.armour.title;
+            cards[1].querySelector('p').innerHTML = t.armour.desc;
+            cards[1].querySelector('.repair-size').innerHTML = t.armour.repair;
+            cards[2].querySelector('h3').innerHTML = t.hydro.title;
+            cards[2].querySelector('p').innerHTML = t.hydro.desc;
+            cards[2].querySelector('.repair-size').innerHTML = t.hydro.repair;
+            cards[3].querySelector('h3').innerHTML = t.standard.title;
+            cards[3].querySelector('p').innerHTML = t.standard.desc;
+            cards[3].querySelector('.repair-size').innerHTML = t.standard.repair;
+            // Contact
+            document.querySelector('.contact-info h3').innerHTML = t.contact_h3;
+            document.querySelector('.contact-form h3').innerHTML = t.contact_form_h3;
+        }
+        document.getElementById('lang-en').onclick = () => {
+            setLang('en');
+            document.getElementById('lang-en').style.fontWeight = 'bold';
+            document.getElementById('lang-et').style.fontWeight = 'normal';
+        };
+        document.getElementById('lang-et').onclick = () => {
+            setLang('et');
+            document.getElementById('lang-en').style.fontWeight = 'normal';
+            document.getElementById('lang-et').style.fontWeight = 'bold';
+        };
+        // Default to EN
+        setLang('en');
     </script>
 </body>
 </html>
