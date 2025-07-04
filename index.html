@@ -451,12 +451,6 @@
     </style>
 </head>
 <body>
-    <!-- Language Bar -->
-    <div id="lang-bar" style="background:#2a5298;color:#fff;padding:0.3rem 0;text-align:right;font-size:1rem;">
-        <span id="lang-en" style="cursor:pointer;font-weight:bold;">EN</span> |
-        <span id="lang-et" style="cursor:pointer;">ET</span>
-    </div>
-
     <!-- Header -->
     <header>
         <nav class="container">
@@ -592,21 +586,6 @@
                 <div class="industry-card"><span class="product-icon" title="Local Authorities">🏢</span><h3 class="industry-name">Local Authorities</h3></div>
                 <div class="industry-card"><span class="product-icon" title="Defense & Government">🛡️</span><h3 class="industry-name">Defense & Government</h3></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Section -->
-    <section class="why-choose">
-        <div class="container">
-            <h2 class="section-title">Why Air-Seal?</h2>
-            <ul style="font-size:1.2rem;line-height:2;margin:2rem auto 0 auto;padding:0;">
-                <li>Seals up to <b>30mm punctures instantly</b>—no stopping, no downtime.</li>
-                <li><b>Permanently protects</b> for the life of the tire—one application, no reapplication.</li>
-                <li>Works in <b>all conditions</b>: on-road, off-road, sub-zero, heavy industry.</li>
-                <li>Trusted by <b>Estonian Defense Forces</b>, Kuusakoski, and more.</li>
-                <li><b>20% longer tire life</b>, <b>95% fewer punctures</b>, <b>3% fuel savings</b>.</li>
-                <li>Zero separation—no maintenance, no hassle.</li>
-            </ul>
         </div>
     </section>
 
@@ -864,10 +843,17 @@
             document.getElementById('lang-fi').style.fontWeight = lang === 'fi' ? 'bold' : 'normal';
             document.getElementById('lang-se').style.fontWeight = lang === 'se' ? 'bold' : 'normal';
         }
-        document.getElementById('lang-en').onclick = () => setLang('en');
-        document.getElementById('lang-ee').onclick = () => setLang('ee');
-        document.getElementById('lang-fi').onclick = () => setLang('fi');
-        document.getElementById('lang-se').onclick = () => setLang('se');
+        // Language switching logic
+        const langButtons = [
+            { id: 'lang-en', code: 'en' },
+            { id: 'lang-ee', code: 'et' },
+            { id: 'lang-fi', code: 'fi' },
+            { id: 'lang-se', code: 'se' }
+        ];
+        langButtons.forEach(btn => {
+            const el = document.getElementById(btn.id);
+            if (el) el.onclick = () => setLang(btn.code);
+        });
         setLang('en');
     </script>
 </body>
