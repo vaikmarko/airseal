@@ -621,7 +621,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>Request Your Quote</h3>
+                    <h3 data-i18n="contact-form-title">Request Your Quote</h3>
                     <form action="https://formspree.io/f/mjkrzqde" method="POST">
                         <div class="form-group">
                             <label for="company" data-i18n="form-company">Company Name</label>
@@ -756,12 +756,13 @@
                 'form-message': 'Additional Information',
                 'form-message-ph': 'Operating conditions, specific requirements, timeline, etc.',
                 'form-button': 'Request Free Quote',
-                'get1': '<b>Parandab kuni 30mm torkeavad koheselt</b>—ei mingit peatumist ega seisakut.',
-                'get2': '<b>Kaitseb jäädavalt</b> kogu rehvi eluea—üks paigaldus, korduvkasutust pole vaja.',
-                'get3': 'Toimib <b>kõigis tingimustes</b>: maanteel, maastikul, miinuskraadides, tööstuses.',
-                'get4': 'Usaldavad <b>Eesti Kaitsevägi</b>, Kuusakoski ja paljud teised.',
-                'get5': '<b>20% pikem rehvi eluiga, 95% vähem torkeauke, 3% kütuse kokkuhoid.</b>',
-                'get6': 'Ei eraldu—hooldusvaba, murevaba.'
+                'contact-form-title': 'Request Your Quote',
+                'get1': '<b>Seals up to 30mm punctures instantly</b>—no stopping, no downtime.',
+                'get2': '<b>Permanently protects</b> for the life of the tire—one application, no reapplication.',
+                'get3': 'Works in <b>all conditions</b>: on-road, off-road, sub-zero, heavy industry.',
+                'get4': 'Trusted by <b>Estonian Defense Forces</b>, Kuusakoski, and more.',
+                'get5': '<b>20% longer tire life, 95% fewer punctures, 3% fuel savings.</b>',
+                'get6': 'Zero separation—no maintenance, no hassle.'
             },
             et: {
                 'nav-home': 'Avaleht',
@@ -828,6 +829,7 @@
                 'form-message': 'Lisainfo',
                 'form-message-ph': 'Töötingimused, erisoovid, ajakava jms.',
                 'form-button': 'Saada päring',
+                'contact-form-title': 'Küsi pakkumist',
                 'get1': '<b>Parandab kuni 30mm torkeavad koheselt</b>—ei mingit peatumist ega seisakut.',
                 'get2': '<b>Kaitseb jäädavalt</b> kogu rehvi eluea—üks paigaldus, korduvkasutust pole vaja.',
                 'get3': 'Toimib <b>kõigis tingimustes</b>: maanteel, maastikul, miinuskraadides, tööstuses.',
@@ -900,6 +902,7 @@
                 'form-message': 'Additional Information',
                 'form-message-ph': 'Operating conditions, specific requirements, timeline, etc.',
                 'form-button': 'Request Free Quote',
+                'contact-form-title': 'Pyydä tarjous',
                 'get1': '<b>Tiivistää jopa 30 mm reiät välittömästi</b>—ei pysähdyksiä, ei seisokkeja.',
                 'get2': '<b>Suojaa pysyvästi</b> koko renkaan eliniän—yksi käsittely, ei uudelleenkäsittelyä.',
                 'get3': 'Toimii <b>kaikissa olosuhteissa</b>: tiellä, maastossa, pakkasessa, raskaassa käytössä.',
@@ -972,6 +975,7 @@
                 'form-message': 'Additional Information',
                 'form-message-ph': 'Operating conditions, specific requirements, timeline, etc.',
                 'form-button': 'Request Free Quote',
+                'contact-form-title': 'Få offert',
                 'get1': '<b>Tätar punkteringar upp till 30 mm omedelbart</b>—ingen stilleståndstid.',
                 'get2': '<b>Skyddar permanent</b> under hela däckets livslängd—en behandling, ingen återbehandling.',
                 'get3': 'Fungerar <b>i alla förhållanden</b>: på väg, terräng, kyla, tung industri.',
@@ -994,6 +998,7 @@
             document.getElementById('lang-ee').style.fontWeight = lang === 'et' ? 'bold' : 'normal';
             document.getElementById('lang-fi').style.fontWeight = lang === 'fi' ? 'bold' : 'normal';
             document.getElementById('lang-se').style.fontWeight = lang === 'se' ? 'bold' : 'normal';
+            localStorage.setItem('airseal-lang', lang);
         }
         // Language switching logic
         const langButtons = [
@@ -1006,7 +1011,9 @@
             const el = document.getElementById(btn.id);
             if (el) el.onclick = () => setLang(btn.code);
         });
-        setLang('en');
+        // On page load, set language from localStorage or default to 'en'
+        const savedLang = localStorage.getItem('airseal-lang') || 'en';
+        setLang(savedLang);
     </script>
 </body>
 </html>
