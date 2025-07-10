@@ -215,33 +215,40 @@
             padding: 50px 0 30px 0;
             background: #f0f4ff;
         }
-        /* Override carousel layout – turn into vertical list */
+        /* Override carousel layout – turn into grid list */
         .industries-nav {
-            display: none; /* hide arrow buttons */
+            display: none;
         }
 
         .industries-carousel {
-            display: flex;
-            flex-direction: column;
-            overflow: visible; /* show full list, no scrolling */
-            gap: 1.2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem 2rem;
+            overflow: visible;
             padding: 0;
-            align-items: center; /* centre list within container */
         }
 
         .industry-card {
-            width: 100%;
-            max-width: 700px;
-            flex-direction: row;
-            justify-content: flex-start;
-            text-align: left;
-            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
             gap: 1rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            padding: 1rem 1.2rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .industry-card:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+            transform: translateY(-3px);
         }
 
         .industry-icon {
-            margin: 0;
-            margin-right: 1rem;
+            font-size: 2rem;
+        }
+
+        @media(max-width:600px){
+            .industries-carousel{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}
         }
         @media (max-width: 600px) {
             .industry-card {
@@ -580,6 +587,26 @@
         </div>
     </section>
 
+    <!-- Industries Section (moved here under Stats) -->
+    <section id="industries" class="industries">
+        <div class="container">
+            <h2 class="section-title" id="industries-title" data-i18n="industries-title">Who Uses Our Products?</h2>
+            <p id="industries-desc" data-i18n="industries-desc" style="text-align:center;font-size:1.05rem;margin:0 0 1.5rem 0;max-width:700px;margin-left:auto;margin-right:auto;">Air-Seal Products are trusted by major fleets and organizations in the following sectors:</p>
+            <!-- navigation arrows hidden by CSS -->
+            <div class="industries-carousel" id="industries-carousel">
+                <div class="industry-card"><span class="industry-icon" title="Road Haulage">🚗</span><h3 class="industry-name" data-i18n="industry1">Road Haulage</h3></div>
+                <div class="industry-card"><span class="industry-icon" title="Waste Management & Recycling">🛻</span><h3 class="industry-name" data-i18n="industry2">Waste Management & Recycling</h3></div>
+                <div class="industry-card"><span class="industry-icon" title="Mining & Quarrying">🛡️</span><h3 class="industry-name" data-i18n="industry3">Mining & Quarrying</h3></div>
+                <div class="industry-card"><span class="industry-icon" title="Agricultural">🚜</span><h3 class="industry-name" data-i18n="industry4">Agricultural</h3></div>
+                <div class="industry-card"><span class="industry-icon" title="Construction & Demolition">🏗️</span><h3 class="industry-name" data-i18n="industry5">Construction & Demolition</h3></div>
+                <div class="industry-card"><span class="industry-icon" title="Grounds Care">💧</span><h3 class="industry-name" data-i18n="industry6">Grounds Care</h3></div>
+                <div class="industry-card"><span class="industry-icon" title="OEM / Dealers">🏭</span><h3 class="industry-name" data-i18n="industry7">OEM / Dealers</h3></div>
+                <div class="industry-card"><span class="industry-icon" title="Local Authorities">🏢</span><h3 class="industry-name" data-i18n="industry8">Local Authorities</h3></div>
+                <div class="industry-card"><span class="industry-icon" title="Defense & Government">🛡️</span><h3 class="industry-name" data-i18n="industry9">Defense & Government</h3></div>
+            </div>
+        </div>
+    </section>
+
     <!-- How It Works Section -->
     <section class="how-it-works">
         <div class="container">
@@ -641,29 +668,6 @@
                     <p data-i18n="product4-desc">Mitmekülgne lahendus väiksematele sõidukitele ja tehnikale. Sopii autoihin, 4x4-dele, haagistele, ATV-dele ja muruniidukitele. <strong>Pane peale ja unusta</strong> – püsiv kaitse erinevates rakendustes.</p>
                     <div class="repair-size" data-i18n="product4-repair">Parandab kuni 15mm</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industries Section -->
-    <section id="industries" class="industries">
-        <div class="container">
-            <h2 class="section-title" id="industries-title" data-i18n="industries-title">Who Uses Our Products?</h2>
-            <p id="industries-desc" data-i18n="industries-desc" style="text-align:center;font-size:1.05rem;margin:0 0 1.5rem 0;max-width:700px;margin-left:auto;margin-right:auto;">Air-Seal Products are trusted by major fleets and organizations in the following sectors:</p>
-            <div class="industries-nav">
-                <button class="industries-arrow" id="industries-prev" aria-label="Previous industries">&#8592;</button>
-                <button class="industries-arrow" id="industries-next" aria-label="Next industries">&#8594;</button>
-            </div>
-            <div class="industries-carousel" id="industries-carousel">
-                <div class="industry-card"><span class="industry-icon" title="Road Haulage">🚗</span><h3 class="industry-name" data-i18n="industry1">Road Haulage</h3></div>
-                <div class="industry-card"><span class="industry-icon" title="Waste Management & Recycling">🛻</span><h3 class="industry-name" data-i18n="industry2">Waste Management & Recycling</h3></div>
-                <div class="industry-card"><span class="industry-icon" title="Mining & Quarrying">🛡️</span><h3 class="industry-name" data-i18n="industry3">Mining & Quarrying</h3></div>
-                <div class="industry-card"><span class="industry-icon" title="Agricultural">🚜</span><h3 class="industry-name" data-i18n="industry4">Agricultural</h3></div>
-                <div class="industry-card"><span class="industry-icon" title="Construction & Demolition">🏗️</span><h3 class="industry-name" data-i18n="industry5">Construction & Demolition</h3></div>
-                <div class="industry-card"><span class="industry-icon" title="Grounds Care">💧</span><h3 class="industry-name" data-i18n="industry6">Grounds Care</h3></div>
-                <div class="industry-card"><span class="industry-icon" title="OEM / Dealers">🏭</span><h3 class="industry-name" data-i18n="industry7">OEM / Dealers</h3></div>
-                <div class="industry-card"><span class="industry-icon" title="Local Authorities">🏢</span><h3 class="industry-name" data-i18n="industry8">Local Authorities</h3></div>
-                <div class="industry-card"><span class="industry-icon" title="Defense & Government">🛡️</span><h3 class="industry-name" data-i18n="industry9">Defense & Government</h3></div>
             </div>
         </div>
     </section>
@@ -897,11 +901,11 @@
                 'industry9': 'Kaitsevägi ja riigisektor',
                 'how-title': 'Kuidas Air-Seal töötab – püsiv kaitse',
                 'how1-title': 'Professionaalne paigaldus',
-                'how1-desc': 'Sertifitseeritud tehnikud lisavad vedela rehvihermeetiku otse rehvi spetsiaalse varustusega. Üks paigaldus kestab kogu rehvi eluea.',
+                'how1-desc': 'Sertifitseeritud tehnikud lisavad vedela rehvihermeetiku otse rehvi spetsiaalse varustusega. Yks paigaldus kestab kogu rehvi eluea.',
                 'how2-title': 'Kohene torke sulgemine',
                 'how2-desc': 'Torke tekkimisel tihendab toode augu 1–2 rattapöördega. Ei rõhukadu ega seisakuid.',
                 'how3-title': 'Katkematu töö',
-                'how3-desc': 'Sõidukid jätkavad tööd katkestusteta. Rehvihermeetik on püsiv ja isetervendav – kaitseb ka tulevaste torkete eest.',
+                'how3-desc': 'Sõidukid jätkavad tööd katkestusteta. Tiiviste on püsiv ja isetervendav – kaitseb ka tulevaste torkete eest.',
                 'how4-title': 'Pikaajaline kasu',
                 'how4-desc': 'Hoiab rehvirõhku optimaalsena, pikendab rehvi eluiga 20 %, säästab 3 % kütust ja välistab 95 % torkest tingitud seisakud.',
                 'form-company': 'Ettevõtte nimi',
@@ -923,7 +927,7 @@
                 'get3': 'Toimib <b>kõigis tingimustes</b>: maanteel, maastikul, pakases ja tööstuskeskkonnas.',
                 'get4': 'Usaldavad <b>Eesti Kaitsevägi</b>, Kuusakoski ja paljud teised.',
                 'get5': '<b>20 % pikem rehvi eluiga, 95 % vähem torkeauke, 3 % kütuse kokkuhoid.</b>',
-                'get6': 'Hooldusvaba, murevaba.',
+                'get6': 'Hooldusvaba, vaivaton.',
                 'review1': '"Pärast Air-Seali kasutuselevõttu pole meil olnud ühtegi rehviriket."',
                 'review1-author': '– Autopargi juht, Balti ehitusettevõte',
                 'review2': '"Kütuse kokkuhoid ja null seisakuid. Air-Seal on iga tõsise autopargi jaoks kohustuslik."',
@@ -982,7 +986,7 @@
                 'how3-title': 'Katkeamaton toiminta',
                 'how3-desc': 'Ajoneuvot jatkavat työskentelyä ilman keskeytyksiä. Tiiviste on pysyvä ja itsestään korjaava – suojaa myös tulevilta vaurioilta.',
                 'how4-title': 'Pitkäaikaiset hyödyt',
-                'how4-desc': 'Säilyttää optimaalisen rengaspaineen, pidentää käyttöikää 20 %, säästää polttoainetta 3 % ja eliminoi 95 % rengasrikoista johtuvista seisokeista.',
+                'how4-desc': 'Bibehåller optimalt däcktryck, förlänger livslängden med 20 %, sparar 3 % bränsle och eliminerar 95 % av punkteringsrelaterade stillestånd.',
                 'form-company': 'Yrityksen nimi',
                 'form-company-ph': 'Yrityksen nimi',
                 'form-contact': 'Yhteyshenkilö',
@@ -1055,7 +1059,7 @@
                 'industry9': 'Försvar och offentlig sektor',
                 'how-title': 'Så fungerar Air-Seal – permanent skydd',
                 'how1-title': 'Professionell installation',
-                'how1-desc': 'Våra certifierade tekniker injicerar tätningsmedlet direkt i däcken med specialutrustning. En behandling räcker under hela däckets livslängd.',
+                'how1-desc': 'Våra certifierade tekniker injicerar tätningsmedlet direkt i däcken med specialutrustning. Yksi käsittely kestää koko däckets livslängd.',
                 'how2-title': 'Omedelbar punkteringslagning',
                 'how2-desc': 'Vid punktering tätar medlet hålet inom 1–2 hjulvarv. Ingen tryckförlust, inget stopp.',
                 'how3-title': 'Oavbruten drift',
