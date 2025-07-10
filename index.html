@@ -248,7 +248,18 @@
         }
 
         @media(max-width:600px){
-            .industries-carousel{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}
+            /* Industries: two-column grid to shorten vertical length */
+            .industries-carousel{grid-template-columns:repeat(2,1fr);} 
+            .industry-card{padding:0.8rem 0.6rem;font-size:0.9rem;}
+
+            /* Contact – What You Get list into two columns */
+            #what-you-get-list{
+                display:grid;
+                grid-template-columns:1fr 1fr;
+                gap:0.8rem;
+                text-align:left;
+            }
+            #what-you-get-list .contact-highlight{font-size:0.9rem;}
         }
         @media (max-width: 600px) {
             .industry-card {
@@ -1003,7 +1014,7 @@
                 'form-fleet': 'Kaluston koko ja tyyppi',
                 'form-fleet-ph': 'esim. 15 kaivinkonetta, 8 dumperia, 20 traktoria',
                 'form-message': 'Lisätiedot',
-                'form-message-ph': 'Käyttöolosuhteet, erityisvaatimukset, aikataulu jne.',
+                'form-message-ph': 'Käyttöolosuhteet, erityisvaatimukset, tidsplan etc.',
                 'form-button': 'Pyydä tarjous',
                 'contact-form-title': 'Pyydä tarjous',
                 'get1': '<b>Tiivistää jopa 30 mm reiät välittömästi</b> – ei pysähdyksiä eikä seisokkeja.',
