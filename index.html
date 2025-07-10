@@ -569,6 +569,20 @@
             border:0;
             border-radius:12px;
         }
+
+        /* Responsive Tuning – Ensure even rows for statistics and steps */
+        @media(min-width:901px){
+            .stats-grid{grid-template-columns:repeat(4,1fr);} /* four per row on large screens */
+            .how-it-works-grid{grid-template-columns:repeat(4,1fr);} /* four steps per row */
+        }
+        @media(max-width:900px){
+            .stats-grid{grid-template-columns:repeat(2,1fr);} /* two per row on tablets */
+            .how-it-works-grid{grid-template-columns:repeat(2,1fr);} /* two per row */
+        }
+        @media(max-width:500px){
+            .stats-grid{grid-template-columns:1fr;} /* stacked on phones */
+            .how-it-works-grid{grid-template-columns:1fr;} /* stacked */
+        }
     </style>
 </head>
 <body>
