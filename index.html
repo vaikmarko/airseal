@@ -256,6 +256,12 @@
                 padding: 0.8rem 1rem;
             }
         }
+        @media(min-width:1200px){
+              .industries-carousel{grid-template-columns:repeat(3,1fr);} /* 3 columns per row */
+         }
+
+        /* Hide any lingering description line */
+        p[data-i18n="industries-desc"]{display:none!important;}
 
         /* How It Works Section */
         .how-it-works {
@@ -591,7 +597,6 @@
     <section id="industries" class="industries">
         <div class="container">
             <h2 class="section-title" id="industries-title" data-i18n="industries-title">Who Uses Our Products?</h2>
-            <p id="industries-desc" data-i18n="industries-desc" style="text-align:center;font-size:1.05rem;margin:0 0 1.5rem 0;max-width:700px;margin-left:auto;margin-right:auto;">Air-Seal Products are trusted by major fleets and organizations in the following sectors:</p>
             <!-- navigation arrows hidden by CSS -->
             <div class="industries-carousel" id="industries-carousel">
                 <div class="industry-card"><span class="industry-icon" title="Road Haulage">🚗</span><h3 class="industry-name" data-i18n="industry1">Road Haulage</h3></div>
@@ -907,7 +912,7 @@
                 'how3-title': 'Katkematu töö',
                 'how3-desc': 'Sõidukid jätkavad tööd katkestusteta. Tiiviste on püsiv ja isetervendav – kaitseb ka tulevaste torkete eest.',
                 'how4-title': 'Pikaajaline kasu',
-                'how4-desc': 'Hoiab rehvirõhku optimaalsena, pikendab rehvi eluiga 20 %, säästab 3 % kütust ja välistab 95 % torkest tingitud seisakud.',
+                'how4-desc': 'Bibehåller optimalt däcktryck, förlänger livslängden med 20 %, sparar 3 % bränsle och eliminerar 95 % av punkteringsrelaterade stillestånd.',
                 'form-company': 'Ettevõtte nimi',
                 'form-company-ph': 'Ettevõtte nimi',
                 'form-contact': 'Kontaktisik',
@@ -955,7 +960,7 @@
                 'trust-quote': '"Yhtään rengasrikkoa ei ole ollut sen jälkeen, kun siirryimme Air-Sealiin."<br>– Kalustopäällikkö, balttialainen rakennusliike',
                 'contact-title': 'Pyydä henkilökohtainen tarjous',
                 'contact-info-title': 'Mitä saat',
-                'footer-main': 'Air-Seal Productsin virallinen edustaja Baltiassa ja Pohjoismaissa.',
+                'footer-main': 'Air-Seal Productsin virallinen edustaja Baltikumis ja Pohjoismaissa.',
                 'footer-company': 'Osaühing Baltsec Grupp | info@air-seal.eu | Rekisterinumero: 10951788 | ALV: EE100831836',
                 'product1-title': 'Heavy Duty Sealant',
                 'product1-desc': 'Täydellinen traktoreihin, dumprar ja kurottajiin. Korjaa reiät välittömästi ja kestää koko renkaan eliniän. <strong>Yksi käsittely suojaa pysyvästi</strong> – ei uudelleenkäsittelyä.',
@@ -1085,7 +1090,7 @@
                 'get3': 'Fungerar <b>i alla förhållanden</b>: väg, terräng, kyla och industri.',
                 'get4': 'Försvarsmakten, Kuusakoski och många andra <b>litar på oss</b>.',
                 'get5': '<b>20 % längre livslängd, 95 % färre punkteringar, 3 % bränslebesparing.</b>',
-                'get6': 'Underhållsfri, bekymmersfri.',
+                'get6': 'Underhållsfri, vaivaton.',
                 'review1': '"Vi har inte haft ett enda däckhaveri sedan vi bytte till Air-Seal."',
                 'review1-author': '– Fordonschef, byggföretag i Baltikum',
                 'review2': '"Bränslebesparing och inga stillestånd. Air-Seal är ett måste för varje professionell fordonspark."',
